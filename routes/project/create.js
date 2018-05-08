@@ -1,7 +1,7 @@
-import express from 'express';
-import jwt from 'jsonwebtoken';
-import firebase from 'firebase';
-import { firebaseInstance } from '../../configs/database';
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const firebase = require('firebase');
+const firebaseInstance = require('../../configs/database');
 
 var ref = firebaseInstance.database().ref().child('projects');
 
@@ -38,4 +38,4 @@ router.post('/', (req, res) => {
         });
 });
 
-export default router;
+module.exports = router;

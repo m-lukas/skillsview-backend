@@ -1,12 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-import loginUser from './routes/user/login';
-import signupUser from './routes/user/signup';
-import getProject from './routes/project/get';
-import joinProject from './routes/project/join';
-import createProject from './routes/project/create';
+const loginUser = require('./routes/user/login');
+const signupUser = require('./routes/user/signup');
+const getProject = require('./routes/project/get');
+const joinProject = require('./routes/project/join');
+const createProject = require('./routes/project/create');
+const APIstatus = require('./routes/status');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,5 +20,6 @@ app.use('/api/user/signup', signupUser);
 app.use('/api/project/join', joinProject);
 app.use('/api/project/create', createProject);
 app.use('/api/project/get', getProject);
+app.use('/api', APIstatus);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

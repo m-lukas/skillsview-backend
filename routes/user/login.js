@@ -1,9 +1,9 @@
-import express from 'express';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import firebase from 'firebase';
-import { firebaseInstance } from '../../configs/database';
-import dotenv from 'dotenv';
+const express = require('express');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const firebase = require('firebase');
+const firebaseInstance = require('../../configs/database');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -47,4 +47,4 @@ router.post('/', (req, res) => {
         });
 });
 
-export default router;
+module.exports = router;
