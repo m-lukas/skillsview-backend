@@ -1,0 +1,23 @@
+{
+  "name": "react-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "yarn start",
+    "server": "nodemon --exec babel-node -- server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "firebase": "^4.13.1",
+    "jsonwebtoken": "^8.2.1",
+    "uniqid": "^4.1.1",
+    "validator": "^9.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "concurrently": "^3.5.0"
+  }
+}
