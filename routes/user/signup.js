@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const jwt = require('jsonwebtoken');
 const uniqid = require('uniqid');
 const firebase = require('firebase');
@@ -27,12 +27,12 @@ const toAuthJson = (uid, email) => {
 }
 
 const encryptPassword = (password) => {
-    return bcrypt.hashSync(password, 10);
+    var salt = bcrypt.genSaltSync(10);
+    return bcrypt.hashSync(password, salt);
 }
 
 router.post('/', (req, res) => {
     const { email, password } = req.body.user;
-
     ref.orderByChild('email').equalTo(email).once('value')
         .then( snapshot => {
             if(snapshot.val()){

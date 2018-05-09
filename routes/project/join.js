@@ -1,5 +1,5 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const jwt = require('jsonwebtoken');
 const uniqid = require('uniqid');
 const firebase = require('firebase');

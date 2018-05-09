@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "scripts": {
     "client": "yarn start",
-    "server": "nodemon --exec babel-node -- server.js",
+    "server": "babel-node -- server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
     "bcrypt": "^2.0.1",
+    "bcrypt-nodejs": "^0.0.3",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "firebase": "^4.13.1",
