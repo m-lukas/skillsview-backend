@@ -32,7 +32,12 @@ router.post('/', (req, res) => {
         if(projectData.users.includes(uid)){
             res.status(400).json({ errors: { global: "Already joined!"} });
         }else{
-            var newUsersString = projectData.users + "," + uid; 
+            var newUsersString = "";
+            if(projectData.users === ""){
+                newUsersString = uid;     
+            }else{
+                newUsersString = projectData.users + "," + uid; 
+            }
             projectRef.child(projectid + '/users').set(newUsersString);
             let userObject = {
                 first_name: first_name,
