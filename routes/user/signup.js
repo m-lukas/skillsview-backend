@@ -21,11 +21,15 @@ const generateJTW = (uid, email) => {
     }, process.env.JWT_SECRET);
 }
 
+const setConfirmationToken = (uid, email) => {
+    return this.generateJTW(uid, email);
+}
+
 //create user object to return
 const toAuthJson = (uid, email) => {
     return{
         email: email,
-        token: generateJTW(uid, email)
+        token: this.generateJTW(uid, email)
     }
 }
 
@@ -54,7 +58,7 @@ router.post('/', (req, res) => {
                 //add auth data in database
                 ref.child(uid).set(userObject);
                 //respond with user data
-                res.json({ user: toAuthJson(uid, email) });
+                res.json({ user: this.toAuthJson(uid, email) });
             }
         });
 });
